@@ -4,6 +4,11 @@ const initialState = { counter: 0, showCounter: true };
 
 const couterReducer = (state = initialState, action) => {
   //  // return new state
+  // do not mutate the STATE !!!
+  // do not mutate the STATE !!!
+  //
+  // ALWAYS overite by returning a new state object
+  //
   if (action.type === "up") {
     return {
       counter: state.counter + 1,
