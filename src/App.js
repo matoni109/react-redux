@@ -4,7 +4,7 @@ import Auth from "./components/Auth";
 import React from "react";
 import UserProfile from "./components/UserProfile";
 import { useSelector, useDispatch } from "react-redux";
-import { authActions } from "../src/store/index";
+import { authActions } from "../src/store/auth";
 
 function App() {
   const dispatch = useDispatch();

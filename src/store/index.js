@@ -1,62 +1,68 @@
 // import { createStore } from "redux";
 import { createSlice, configureStore } from "@reduxjs/toolkit";
+// import { authSlice } from "./auth";
+// import { counterSlice } from "./counter";
+
+// takes the default exports from below files
+import authReducer from "./auth";
+import counterReducer from "./counter";
 
 // counter SLICE
-const initialCounterState = { counter: 0, showCounter: true };
+// const initialCounterState = { counter: 0, showCounter: true };
 
-const counterSlice = createSlice({
-  name: "counter",
-  initialState: initialCounterState,
-  reducers: {
-    // add methods here
-    // toolkit clones the state
-    // wow
-    increment(state) {
-      state.counter++;
-    },
-    decrement(state) {
-      state.counter--;
-    },
-    increase(state, action) {
-      state.counter = state.counter + action.payload;
-    },
-    toggleCounter(state) {
-      state.showCounter = !state.showCounter;
-    },
-  },
-});
+// const counterSlice = createSlice({
+//   name: "counter",
+//   initialState: initialCounterState,
+//   reducers: {
+//     // add methods here
+//     // toolkit clones the state
+//     // wow
+//     increment(state) {
+//       state.counter++;
+//     },
+//     decrement(state) {
+//       state.counter--;
+//     },
+//     increase(state, action) {
+//       state.counter = state.counter + action.payload;
+//     },
+//     toggleCounter(state) {
+//       state.showCounter = !state.showCounter;
+//     },
+//   },
+// });
 
 // AUTH SLICE
-const initialAuthState = {
-  isAuthenticated: false,
-};
+// const initialAuthState = {
+//   isAuthenticated: false,
+// };
 
-const authSlice = createSlice({
-  name: "auth",
-  initialState: initialAuthState,
-  reducers: {
-    login(state) {
-      state.isAuthenticated = true;
-    },
-    logOut(state) {
-      state.isAuthenticated = false;
-    },
-  },
-});
+// const authSlice = createSlice({
+//   name: "auth",
+//   initialState: initialAuthState,
+//   reducers: {
+//     login(state) {
+//       state.isAuthenticated = true;
+//     },
+//     logOut(state) {
+//       state.isAuthenticated = false;
+//     },
+//   },
+// });
 
 const store = configureStore({
   // config map of reducers
   //
   // reducer: { counter: counterSlice.reducer },
   reducer: {
-    counter: counterSlice.reducer,
-    auth: authSlice.reducer,
+    counter: counterReducer,
+    auth: authReducer,
   },
 });
 
 // export / setup actions below
-export const counterActions = counterSlice.actions;
-export const authActions = authSlice.actions;
+// export const counterActions = counterSlice.actions;
+// export const authActions = authSlice.actions;
 
 export default store;
 
