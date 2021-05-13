@@ -16,11 +16,6 @@ function App() {
     dispatch(authActions.login());
   };
 
-  const logOutHandler = (event) => {
-    event.preventDefault();
-    dispatch(authActions.logOut());
-  };
-
   return (
     <>
       <Header />
